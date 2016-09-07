@@ -1,0 +1,14 @@
+{
+  "name": "dm-q-03",
+  "version": "1.0.0",
+  "description": "Data Mining Quiz - Euclidean & Mahalanobis Distance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+	"compute-covariance": "*"
+  }
+}
