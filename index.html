@@ -24,6 +24,7 @@
 					<button id="subinput" type="submit">submit</button>
 				</form>
 				<button id="euclidean">Hitung Euclidean!</button>
+				<button id="mahalanobis">Hitung Mahalanobis!</button>
 			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -34,6 +35,7 @@
 			var alldata;
 			var indexfirst;
 			var indexsecond;
+			var dimension = 0;
 
 			$(document).ready(function() {
 		      if(isAPIAvailable()) {
@@ -91,6 +93,7 @@
 		          html += '<tr>\r\n';
 		          for(var item in data[row]) {
 		            html += '<td>' + data[row][item] + '</td>\r\n';
+								dimension = item;
 		          }
 		          html += '</tr>\r\n';
 		        }
@@ -123,6 +126,43 @@
 		    	}
 		    });
 		    //---END COUNT EUCLIDEAN DISTANCE---
+
+				//---START COUNT MAHALANOBIS DISTANCE---
+				document.getElementById("mahalanobis").addEventListener("click", function() {
+		    	if(indexfirst==null && indexsecond==null) {
+		    		alert("Anda belum memasukkan titik yang akan dihitung!");
+		    	} else {
+		    		//count Covariance Matrix
+						var average = [];
+						for(var x = 0; x < dimension; x++) {
+							average[x] = 0;
+							for(var y = 0; y < alldata.length; y++) {
+								average[x] = +average[x] + +alldata[y][x+1]; 
+							}
+							
+							average[x] = +average[x] / +alldata.length;
+							//console.log(average[x]);
+						}
+						//console.log(dimension); 
+						//console.log(alldata.length);
+						var tempo = 0;
+						var covmat = []; 
+						for(var x = 0; x < dimension; x++) {
+							for(var y = 0; y < dimension; y++) {
+								covmat[x] = [];
+								tempo = 0;
+								for(var z = 0; z < alldata.length; z++) {
+									tempo = +tempo + (+alldata[z][x+1] - +average[x]) * (+alldata[z][y+1] - +average[y]);
+								}
+								//console.log(tempo);
+								covmat[x][y] = +tempo / (+alldata.length-1);
+								console.log(covmat[x][y]);
+							}
+							//console.log(tempo);
+						}
+		    	}
+		    });
+				//---END COUNT MAHALANOBIS DISTANCE---
 		</script>
 	</body>
 </html>

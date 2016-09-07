@@ -8,7 +8,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-	"compute-covariance": "*"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/12blackpearls/EuclideanMahalanobis.git"
   }
 }
