@@ -79,6 +79,7 @@
     $('#form-id').submit(function(event) {
         indexfirst = $('#indexfirst').val();
         indexsecond = $('#indexsecond').val();
+        document.getElementById("subinput").innerHTML = "Titik 1 : " + indexfirst + " & Titik 2 : " + indexsecond;
         // console.log(alldata[indexfirst][1]);
         // console.log(alldata[indexfirst][2]);
         event.preventDefault();
@@ -93,6 +94,7 @@
             var totalEuc = Math.pow(alldata[indexfirst-1][1]-alldata[indexsecond-1][1],2) + Math.pow(alldata[indexfirst-1][2]-alldata[indexsecond-1][2],2);
             var fixEuc = Math.sqrt(totalEuc);
             console.log(fixEuc);
+            document.getElementById("resEuclidean").innerHTML = fixEuc;
         }
     });
     //---END COUNT EUCLIDEAN DISTANCE---
@@ -193,6 +195,7 @@
                 //var mnobisfix = (+mnobis[0][0] * +b_trans[0][0]) + (+mnobis[0][1] * +b_trans[1][0]);
                 
                 console.log(mnobisfix);
+                document.getElementById("resMahalanobis").innerHTML = mnobisfix;
                 // var mnobis = fix1.times(fix2);
                 // var mnobis = mnobis.times(fix3);
                 // console.log(mnobis);
@@ -202,7 +205,9 @@
         //---END COUNT MAHALANOBIS DISTANCE---
 //CUSTOM JS ENDS HERE
 
-//THIS IS IMPORTED MODULE - DO NOT TOUCH / MODIFY THIS POINT ONWARD
+
+
+//THIS IS IMPORTED MODULE - DO NOT TOUCH / MODIFY THIS POINT ONWARD !!!
 },{"simplematrix":2}],2:[function(require,module,exports){
 module.exports = require('./lib/matrix.js');
 

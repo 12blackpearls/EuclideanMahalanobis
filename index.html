@@ -2,11 +2,51 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
 	</head>
 	<body>
 		<div class="row">
-			<div class="col s8">
-				<p>Masukkan data training : </p>
+			<div class="col s3 grey darken-4" style="height:100%; position:fixed;" >
+				<div class="col s12" style="margin-top:20px;">
+					<h5 style="text-align:center; color:#f5f5f5;">Euclidean & Mahalanobis Distance</h5>
+					
+				</div>
+				<form id="form-id">
+					<div class="input-field col s12">
+						<input type="text" id="indexfirst" required style="color:#FFF;">
+						<label for="indexfirst">First Point</label>
+					</div>
+					<div class="input-field col s12">
+						<input type="text" id="indexsecond"  required style="color:#FFF;">
+						<label for="indexsecond">Second Point</label>
+					</div>
+						<div class="col s12">
+							<button id="subinput" type="submit" class="btn" style="width:100%;">Masukkan Input</button>
+						</div>
+					
+				</form>
+				<div class="col s8 offset-s2" style="margin-top:25px;">
+					<button id="euclidean" style="width:100%;" class="btn">Euclidean</button>
+					<p id="resEuclidean" style="color:#f5f5f5;text-align:center;">Find Me</p>
+				</div>
+				<div class="col s8 offset-s2" >
+					<button id="mahalanobis" style="width:100%;" class="btn">Mahalanobis</button>
+					<p id="resMahalanobis" style="color:#f5f5f5;text-align:center;">Or Find Me</p>
+				</div>
+				<div class="col s8 offset-s2">
+					<p style="color:#f5f5f5;text-align:center;">Check this on Github !</p>
+					<h4 style="text-align:center;color:#f5f5f5;"><a href="https://github.com/12blackpearls/EuclideanMahalanobis"><i class="fa fa-github" aria-hidden="true"></i></a></h4>
+				</div>
+				<div class="col s12">
+					<p style="color:#f5f5f5; text-align:center;">Made with <i class="fa fa-heartbeat" aria-hidden="true"></i> using Javascript</p>
+					<p style="color:#f5f5f5; text-align:center;"><i class="fa fa-copyright" aria-hidden="true"></i> - KDFB</p>
+				</div>
+				
+			</div>
+			<div class="col s9 offset-s3" >
+				<p>Enter training set in CSV (check simple2.csv or test.csv in 'file' folder to see the format): </p>
       			<div id="inputtrain" class="clearfix">
         			<input type="file" id="files" name="files[]" multiple />
       			</div>
@@ -17,17 +57,9 @@
       				<table id="contents"></table>
       			</div>
 			</div>
-			<div class="col s4">
-				<form id="form-id">
-					<input type="text" id="indexfirst" placeholder="First Input" required>
-					<input type="text" id="indexsecond" placeholder="Second Input" required>
-					<button id="subinput" type="submit">submit</button>
-				</form>
-				<button id="euclidean">Hitung Euclidean!</button>
-				<button id="mahalanobis">Hitung Mahalanobis!</button>
-			</div>
+
 		</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		
 		<script src="js/jquery.csv.js"></script>
 		<script src="bundle.js"></script>
 	</body>
