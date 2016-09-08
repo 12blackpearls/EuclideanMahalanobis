@@ -91,7 +91,15 @@
         if(indexfirst==null && indexsecond==null) {
             alert("Anda belum memasukkan titik yang akan dihitung!");
         } else {
-            var totalEuc = Math.pow(alldata[indexfirst-1][1]-alldata[indexsecond-1][1],2) + Math.pow(alldata[indexfirst-1][2]-alldata[indexsecond-1][2],2);
+            var totalEuc = 0; 
+            
+            for(var x = 0; x < dimension; x++) {
+              totalEuc = totalEuc + Math.pow(alldata[indexfirst-1][x+1]-alldata[indexsecond-1][x+1],2);
+            }
+
+            //ALTERNATIVE IF THERE ARE ONLY 2 DIMENSION
+            //var totalEuc = Math.pow(alldata[indexfirst-1][1]-alldata[indexsecond-1][1],2) + Math.pow(alldata[indexfirst-1][2]-alldata[indexsecond-1][2],2);
+            
             var fixEuc = Math.sqrt(totalEuc);
             console.log(fixEuc);
             document.getElementById("resEuclidean").innerHTML = fixEuc;
@@ -182,7 +190,7 @@
                   }
                 }
 
-                //ALTERNATIVE IF THERE ARE ONLY 2 POINTS
+                //ALTERNATIVE IF THERE ARE ONLY 2 DIMENSION
                 // mnobis[0][0] = (+matmnobis[0][0] * +a_inv[0][0]) + (+matmnobis[0][1] * +a_inv[1][0]);
                 // mnobis[0][1] = (+matmnobis[0][0] * +a_inv[0][1]) + (+matmnobis[0][1] * +a_inv[1][1]);
                 
@@ -191,7 +199,7 @@
                   mnobisfix = mnobisfix + (mnobis[0][x] * b_trans[x][0]);
                 }
 
-                //ALTERNATIVE IF THERE ARE ONLY 2 POINTS
+                //ALTERNATIVE IF THERE ARE ONLY 2 DIMENSION
                 //var mnobisfix = (+mnobis[0][0] * +b_trans[0][0]) + (+mnobis[0][1] * +b_trans[1][0]);
                 
                 console.log(mnobisfix);
